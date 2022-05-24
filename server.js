@@ -1,20 +1,14 @@
 const express = require("express");
+const app = express();
 const multer = require("multer");
 const productRouter = express.Router();
-const fs = require("fs");
+
 const Contenedor = require('./classContenedor.js');
 const path = require('path')
-const router = express.Router();
+
 module.exports = productRouter;
 
-const app = express();
-const puerto = 8080;
-
-productRouter.use(express.json());
-productRouter.use(express.urlencoded({extended: true}));
-
 const fileName = path.resolve(__dirname,'productos.txt');
-console.log(fileName);
 let productos = new Contenedor(fileName);
 
 
@@ -29,6 +23,7 @@ productRouter.get('/:id', async (req, res) => {
 });
 
 productRouter.post('/', async (req, res) => {
+    console.log(req.body);
     let producto = JSON.stringify(req.body);
     let productoSave=await productos.save(producto);
     res.send(productoSave);

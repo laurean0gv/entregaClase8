@@ -4,15 +4,28 @@
     <title>Productos</title>
   </head>
   <body>
-    <form action="/api/productos" enctype="multipart/form-data" method="POST">
-        <h4>Titulo</h4>
-        <input type="textbox" name="title"/>
-        <h4>Precio</h4>
-      <input type="textbox" name="price"/>
-      <h4>URL de la imagen</h4>
-      <input type="textbox" name="thumbnail"/>
-      <h4></h4>
-      <input type="submit" value="Subir archivo"/>
+    <form action="http://localhost:8080/api/productos" method="POST">
+        <div>
+            <ul>
+                <li>
+                    <label for="name">Titulo</label>
+                    <input type="text" name="title" id="title"/>
+                </li>
+                <li>
+                    <label for="name">Precio</label>
+                    <input type="text" name="price" id="price"/>
+                </li>
+                <li>
+                    <label for="name">URL de la imagen</label>
+                    <input type="text" name="thumbnail" id="thumbnail"/> 
+                </li>
+                <br>
+                <li>
+                    <button type="submit">Guardar</button>
+                </li>  
+            </ul>
+        </div>
+        
     </form>
   </body>
 </html>
